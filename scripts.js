@@ -121,14 +121,14 @@ document.addEventListener("DOMContentLoaded", async function () {
       }
     });
 
-    //transforma as entradas em entradas com 10% de aumento
+    //transforma as entradas em entradas com 1% de aumento
     $("td:nth-child(6)").each(function () {
       //se for numero...
       if (isNaN($(this).text())) {
         return;
       }
       var value = $(this).text();
-      var newValue = parseFloat(value) * 1.1; // Adiciona 10%
+      var newValue = parseFloat(value) * 1.01; // Adiciona 1%
       $(this).text(newValue.toFixed(2) + "0");
       $(this).css("color", "green");
     });
