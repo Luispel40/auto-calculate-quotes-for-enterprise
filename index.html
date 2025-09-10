@@ -1,206 +1,180 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link icon="icon" type="image/png"
-            href="https://br258.hostgator.com.br:2083/cpsess9568507953/viewer/home2%2fcont2850%2fpublic_html%2ftabelas%2fimg/Logo-ContemplaBens.png">
-        <script
-            src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"
-            integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/"
-            crossorigin="anonymous"></script>
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.13/jspdf.plugin.autotable.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link icon="icon" type="image/png"
+        href="https://br258.hostgator.com.br:2083/cpsess9568507953/viewer/home2%2fcont2850%2fpublic_html%2ftabelas%2fimg/Logo-ContemplaBens.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"
+        integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.13/jspdf.plugin.autotable.min.js"></script>
 
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"
-            integrity="sha512-Zq9o+E00xhhR/7vJ49mxFNJ0KQw1E1TMWkPTxrWcnpfEFDEXgUiwJHIKit93EW/XxE31HSI5GEOW06G6BF1AtA=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.css"
-            integrity="sha512-DIW4FkYTOxjCqRt7oS9BFO+nVOwDL4bzukDyDtMO7crjUZhwpyrWBFroq+IqRe6VnJkTpRAS6nhDvf0w+wHmxg=="
-            crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"
+        integrity="sha512-Zq9o+E00xhhR/7vJ49mxFNJ0KQw1E1TMWkPTxrWcnpfEFDEXgUiwJHIKit93EW/XxE31HSI5GEOW06G6BF1AtA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.css"
+        integrity="sha512-DIW4FkYTOxjCqRt7oS9BFO+nVOwDL4bzukDyDtMO7crjUZhwpyrWBFroq+IqRe6VnJkTpRAS6nhDvf0w+wHmxg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
-        <script
-            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-        <script
-            src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-            integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-            crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <title>estoque contemplados</title>
-        <link id="dynamic-css" rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>estoque contemplados</title>
+    <link id="dynamic-css" rel="stylesheet" href="styles.css">
 
-        <script src="scripts.js"></script>
+    <script src="scripts.js"></script>
 
-        <body>
+<body>
 
-            <div class="introduction-animation logo">
+    <div class="introduction-animation logo">
 
+        <h1>Estoque</h1> <br>
+        <h2>Contemplados</h2>
+    </div>
+    <div class="isLoading">
+        <p>Aplicando filtros</p>
+        <i class="fa-solid fa-spinner"></i>
+    </div>
+
+    <header>
+        <section class="head">
+            <div class="container logo">
                 <h1>Estoque</h1> <br>
                 <h2>Contemplados</h2>
-            </div>
-            <div class="isLoading">
-                <p>Aplicando filtros</p>
-                <i class="fa-solid fa-spinner"></i>
-            </div>
 
-            <header>
-                <section class="head">
-                    <div class="container logo">
-                        <h1>Estoque</h1> <br>
-                        <h2>Contemplados</h2>
+        </section>
+    </header>
 
-                    </section>
-                </header>
+    <section class="controles">
+        <div class="cont">
+            <div class="container apresent">
+                <p>ESTOQUE CONSÓRCIOS CONTEMPLADOS</p>
 
-                <section class="controles">
-                    <div class="cont">
-                        <div class="container apresent">
-                            <p>ESTOQUE CONSÓRCIOS CONTEMPLADOS</p>
+                <div class="caixa-toggle" id="filter-credit">
+                    <div>
+                        <label for="minValue-credit">Valor
+                            Mínimo:</label>
+                        <input type="number" id="minValue-credit" min="0" max="10000000" step="100" />
+                        <div id="minValueDisplay-credit" class="value-display">0,00</div>
+                    </div>
 
-                            <div class="caixa-toggle" id="filter-credit">
-                                <div>
-                                    <label for="minValue-credit">Valor
-                                        Mínimo:</label>
-                                    <input type="number" id="minValue-credit"
-                                        min="0" max="10000000" step="100" />
-                                    <div id="minValueDisplay-credit"
-                                        class="value-display">0,00</div>
-                                </div>
+                    <div>
+                        <label for="maxValue-credit">Valor
+                            Máximo:</label>
+                        <input type="number" id="maxValue-credit" min="0" max="10000000" step="100" />
+                        <div id="maxValueDisplay-credit" class="value-display">10.000.000,00</div>
+                    </div>
 
-                                <div>
-                                    <label for="maxValue-credit">Valor
-                                        Máximo:</label>
-                                    <input type="number" id="maxValue-credit"
-                                        min="0" max="10000000" step="100" />
-                                    <div id="maxValueDisplay-credit"
-                                        class="value-display">10.000.000,00</div>
-                                </div>
+                    <button id="filterBtn-credit" disabled>Filtrar
+                        Credito</button>
+                </div>
 
-                                <button id="filterBtn-credit" disabled>Filtrar
-                                    Credito</button>
-                            </div>
+                <div class="caixa-toggle" id="filter-entry">
 
-                            <div class="caixa-toggle" id="filter-entry">
+                    <div>
+                        <label for="minValue-entry">Valor
+                            Mínimo:</label>
+                        <input type="number" id="minValue-entry" min="0" max="5000000" step="100" />
+                        <div id="minValueDisplay-entry" class="value-display">0,00</div>
+                    </div>
 
-                                <div>
-                                    <label for="minValue-entry">Valor
-                                        Mínimo:</label>
-                                    <input type="number" id="minValue-entry"
-                                        min="0" max="5000000" step="100" />
-                                    <div id="minValueDisplay-entry"
-                                        class="value-display">0,00</div>
-                                </div>
+                    <div>
+                        <label for="maxValue-entry">Valor
+                            Máximo:</label>
+                        <input type="number" id="maxValue-entry" min="0" max="5000000" step="100" />
+                        <div id="maxValueDisplay-entry" class="value-display">5.000.000,00</div>
+                    </div>
 
-                                <div>
-                                    <label for="maxValue-entry">Valor
-                                        Máximo:</label>
-                                    <input type="number" id="maxValue-entry"
-                                        min="0" max="5000000" step="100" />
-                                    <div id="maxValueDisplay-entry"
-                                        class="value-display">5.000.000,00</div>
-                                </div>
+                    <button id="filterBtn-entry" disabled>Filtrar
+                        Entrada</button>
+                </div>
 
-                                <button id="filterBtn-entry" disabled>Filtrar
-                                    Entrada</button>
-                            </div>
+                <div class="caixa-toggle" id="filter-parts">
 
-                            <div class="caixa-toggle" id="filter-parts">
+                    <div>
+                        <label for="minValue-parts">Valor
+                            Mínimo:</label>
+                        <input type="number" id="minValue-parts" min="0" max="300000" step="10" />
+                        <div id="minValueDisplay-parts" class="value-display">0,00</div>
+                    </div>
 
-                                <div>
-                                    <label for="minValue-parts">Valor
-                                        Mínimo:</label>
-                                    <input type="number" id="minValue-parts"
-                                        min="0" max="300000" step="10" />
-                                    <div id="minValueDisplay-parts"
-                                        class="value-display">0,00</div>
-                                </div>
+                    <div>
+                        <label for="maxValue">Valor Máximo:</label>
+                        <input type="number" id="maxValue-parts" min="0" max="300000" step="10" />
+                        <div id="maxValueDisplay-parts" class="value-display">300.000,00</div>
+                    </div>
 
-                                <div>
-                                    <label for="maxValue">Valor Máximo:</label>
-                                    <input type="number" id="maxValue-parts"
-                                        min="0" max="300000" step="10" />
-                                    <div id="maxValueDisplay-parts"
-                                        class="value-display">300.000,00</div>
-                                </div>
+                    <button id="filterBtn-parts" disabled>Filtrar
+                        Parcelas</button>
+                </div>
+            </div class="container">
 
-                                <button id="filterBtn-parts" disabled>Filtrar
-                                    Parcelas</button>
-                            </div>
-                            </div class="container">
+            <div class="container valorEntrada">
+                <div class="pesquisa">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input id="searchInput" type="text" placeholder="Pesquisar Administradora...">
+                </div>
 
-                            <div class="container valorEntrada">
-                                <div class="pesquisa">
-                                    <i class="fa-solid fa-magnifying-glass"></i>
-                                    <input id="searchInput" type="text"
-                                        placeholder="Pesquisar Administradora...">
-                                </div>
+                <br>
 
-                                <br>
-
-                                <div class="container">
-                                    <p>O que você precisa?</p>
-                                    <div class="selects">
-                                        <h3 class="tipeOfProperty">Selecione o
-                                            tipo:</h3>
-                                        <div class="houseOrCar">
-                                            <button class="imoveisFilterButton">
-                                                <i
-                                                    class="fa-solid fa-house"></i>
-                                            </button>
-                                            <button class="autoFilterButton">
-                                                <i class="fa-solid fa-car"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
+                <div class="container">
+                    <p>O que você precisa?</p>
+                    <div class="selects">
+                        <h3 class="tipeOfProperty">Selecione o
+                            tipo:</h3>
+                        <div class="houseOrCar">
+                            <button class="imoveisFilterButton">
+                                <i class="fa-solid fa-house"></i>
+                            </button>
+                            <button class="autoFilterButton">
+                                <i class="fa-solid fa-car"></i>
+                            </button>
                         </div>
                     </div>
 
-                </section>
-
-                <div class="displayFilters">
-                    <button id="eraseAllFilters">Limpar Filtros</button>
                 </div>
 
-                <div class="action-special-buttons">
-                    <button id="deselectAll">Desmarcar Todos</button>
-                    <button class="action" id="acrion">Calcular Tabelas</button>
-                </div>
+            </div>
+        </div>
+        </div>
 
-                <section id="botoes_download">
+    </section>
 
-                    <button id="toggleExportButtons">
-                        Baixar tabela
-                        completa.</button>
+    <div class="displayFilters">
+        <button id="eraseAllFilters">Limpar Filtros</button>
+    </div>
 
-                    <div id="exportButtonsFora">
-                        <div id="exportButtons"
-                            style="transform: translateY(-150px);">
-                            <button
-                                onclick="exportTableToPDF('tabela_contemplabens.pdf')">Baixar
-                                PDF</button>
-                            <button id="exportButton">Baixar Excel</button>
-                            <button id="download-csv">Baixar CSV</button>
-                        </div>
-                    </div>
+    <div class="action-special-buttons">
+        <button id="deselectAll">Desmarcar Todos</button>
+        <button class="action" id="acrion">Calcular Tabelas</button>
+    </div>
 
-                </section>
+    <section id="botoes_download">
 
-                <script>
+        <button id="toggleExportButtons">
+            Baixar tabela
+            completa.</button>
+
+        <div id="exportButtonsFora">
+            <div id="exportButtons" style="transform: translateY(-150px);">
+                <button onclick="exportTableToPDF('tabela_contemplabens.pdf')">Baixar
+                    PDF</button>
+                <button id="exportButton">Baixar Excel</button>
+                <button id="download-csv">Baixar CSV</button>
+            </div>
+        </div>
+
+    </section>
+
+    <script>
         document.getElementById('toggleExportButtons').addEventListener('click', function () {
             var exportButtons = document.getElementById('exportButtons');
             var buttonMostrar = document.getElementById('toggleExportButtons');
@@ -412,17 +386,17 @@
 
     </script>
 
-                <dialog>
-                    <div id="valorCotas">
-                        <h1>Junção de cotas</h1>
-                        <div id="res">
-                            Aqui vão ficar suas informações de cotas
-                        </div>
+    <dialog>
+        <div id="valorCotas">
+            <h1>Junção de cotas</h1>
+            <div id="res">
+                Aqui vão ficar suas informações de cotas
+            </div>
 
-                    </div>
+        </div>
 
-                    <button class="btn-close">X</button>
-                    <!-- <div class="commission-box">
+        <button class="btn-close">X</button>
+        <!-- <div class="commission-box">
                         <p>valor da comissão:<br><span
                                 id="result">0</span></p><br>
                         <div class="botoesComissao">
@@ -440,34 +414,31 @@
                         </div>
                     </div> -->
 
-                    <button type="button" class="btn btn-primary"
-                        id="copyAndShare">Compartilhar no WhatsApp</button>
-                    <div id="botoes_copia">
-                        <button id="create_pdf">Gerar PDF</button>
-                        <button id="handleCopyResClick">Copiar Texto</button>
-                    </div>
-                </dialog>
+        <button type="button" class="btn btn-primary" id="copyAndShare">Compartilhar no WhatsApp</button>
+        <div id="botoes_copia">
+            <button id="create_pdf">Gerar PDF</button>
+            <button id="handleCopyResClick">Copiar Texto</button>
+        </div>
+    </dialog>
 
-                <div class="tabela"></div>
+    <div class="tabela"></div>
 
-                <footer><br><br>
-                    <center>
-                        <p>
-                            <font color="#fff">Estoque contemplados 2025® |
-                                TODOS OS
-                                DIREITOS RESERVADOS. <br></br>
+    <footer><br><br>
+        <center>
+            <p>
+                <font color="#fff">Estoque contemplados 2025® |
+                    TODOS OS
+                    DIREITOS RESERVADOS. <br></br>
 
-                            desenvolvido por <a
-                                style="color: rgb(165, 165, 226);"
-                                href="https://designerluiscoms.com/"
-                                target="_blank">Alphawebs design
-                                ®</a></font><br>
+                    desenvolvido por <a style="color: rgb(165, 165, 226);" href="https://designerluiscoms.com/"
+                        target="_blank">Alphawebs design
+                        ®</a></font><br>
 
-                    </p>
-                </center><br><br>
-            </footer>
+            </p>
+        </center><br><br>
+    </footer>
 
-            <script>
+    <script>
 
 
         const button = document.querySelector(".action")
@@ -823,14 +794,13 @@
             if (aData.length == 1) {
                 res.innerHTML = `
 <p><strong>Administradora: </strong> ${aData[0].ADM}<p/>
-<p><strong>Categoria: </strong> ${aData[0].Tipo}</p>
-<p><strong><p>Crédito: </strong> ${creditoEnd}<br></p>
+<p><strong>Categoria: </strong> ${aData[0].Tipo}</p><br>
+<p><strong><p>Crédito: </strong> ${creditoEnd}</p>
 <p><strong>Entrada:</strong> <span class="entrada"> ${entradaEnd}</span></p>
+<p><strong>Parcelas:</strong> ${resultadoFormatado}</p>
 
-<p><strong>Parcelas:</p>
-    <p> </strong>${resultadoFormatado}</p><br> 
 
-<p><strong>Saldo Devedor:</strong> ${valorDevedorEnd} </p><br><br>
+<p><strong>Saldo Devedor:</strong> ${valorDevedorEnd} </p><br>
 <p><strong>Você selecionou: </strong> ${checkedRows.length} carta(s).</p>
 ${formattedContent}`;
             } else if (aData.length > 1) {
@@ -839,12 +809,12 @@ ${formattedContent}`;
 
                 res.innerHTML = `
 <p><strong>Administradora: </strong> ${aData[0].ADM}</p>
-<p><strong>Categoria: </strong> ${aData[0].Tipo}</p>
+<p><strong>Categoria: </strong> ${aData[0].Tipo}</p><br>
 <p><strong><p>Crédito: </strong> ${creditoEnd}</p>
 <p><strong>Entrada: </strong> <span class="entrada"> ${entradaEnd}</p></span>
 
 <p><strong>Parcelas:</p>
-    <p> </strong>${resultadoFormatado}</p><br> 
+    <p> </strong>${resultadoFormatado}</p>
 
 <p><strong>Saldo Devedor: </strong> ${valorDevedorEnd}</p><br><br>
 <p><strong>Você selecionou: </strong> ${checkedRows.length} carta(s)</p>
@@ -891,9 +861,14 @@ ${formattedContent}`;
                 title: 'Copiado',
                 message: 'para a área de transferencia!'
             });
-            var copiedText = res.innerText.replace(/:\n/g, ': ').replace(/\n\n/g, "\n")
-            navigator.clipboard.writeText(copiedText)
+
+            console.log("Texto original:", res.innerText);   // debug log
+            console.log("Texto processado:", copiedText);   // debug log
+
+            var copiedText = res.innerText.replace(/:\n/g, ': ').replace(/\n\n/g, "\n").replace(/0 /g, "\n\n"); 
+            navigator.clipboard.writeText(copiedText.toUpperCase());
             alert("Copiado para área de transferencia!")
+            console.log("Texto copiado:", copiedText);
         })
 
         $('#copyAndShare').click(function () {
@@ -914,8 +889,8 @@ ${formattedContent}`;
             }
 
             if (lines.length > 5) {
-                lines.splice(6, 0, "");
-            }
+                lines.splice(4, 0, "");
+            } 
             text = lines.join("\n");
             text = text.replace(/\nSaldo/, "\n\nSaldo").replace(/\nVocê/, "\n\nVocê").replace(/Junção de cotas/, "*Junção de cotas*");
 
@@ -929,8 +904,9 @@ ${formattedContent}`;
             document.execCommand('copy');
             document.body.removeChild(tempTextarea);
 
-            var whatsappUrl = 'https://wa.me/?text=' + encodeURIComponent(text);
-            window.open((whatsappUrl), '_blank');
+            // var whatsappUrl = 'https://wa.me/?text=' + encodeURIComponent(text);
+            // window.open((whatsappUrl), '_blank');
+            console.log(text);
         });
 
 
@@ -1091,18 +1067,18 @@ ${formattedContent}`;
         });
 
     </script>
-            <script src="filters.js"></script>
-        </head>
+    <script src="filters.js"></script>
+    </head>
 
-        <body>
+    <body>
 
-            <!-- Modal -->
-            <div class="modal">
+        <!-- Modal -->
+        <div class="modal">
 
-                <div class="modal-content">
+            <div class="modal-content">
 
-                </div>
             </div>
-        </body>
+        </div>
+    </body>
 
-    </html>
+</html>
