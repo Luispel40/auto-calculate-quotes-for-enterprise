@@ -295,12 +295,29 @@
             overflow: hidden; 
             padding: 20px;
 
+        }
+    }
 
-            & img {
-                filter: invert(1);
-                width: 50px;
-            }
+    .logo {
+        color: var(--blue);
+        text-align: center;
+        flex-direction: column;
+        line-height: 0.7;
+        text-transform: uppercase;
 
+        & h1 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            line-height: 1;
+            margin: 0;
+        }
+
+        & h2 {
+            color: #fff;
+            border-bottom: 1px solid #fff;
+            font-weight: 200;
+            padding-bottom: 5px;
+            font-size: 1.6rem;
         }
     }
 
@@ -499,8 +516,6 @@
         transform: scale(1.01);
         cursor: pointer;
 
-        & td[realValue]::before {
-        }
     }
 
 
