@@ -127,9 +127,9 @@ document.addEventListener("DOMContentLoaded", async function () {
       if (isNaN($(this).text())) {
         return;
       }
-      var value = $(this).text();
+      var value = $(this).text() + "0";
       var newValue = parseFloat(value) * 1.01; // Adiciona 1%
-      $(this).text(newValue.toFixed(2) + "0");
+      $(this).text(newValue.toFixed(3));
       $(this).css("color", "green");
     });
 
@@ -219,9 +219,9 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 
         if (primeiraCelula.text().replace(/\s+/g, "") == "Imovel") {
-          primeiraCelula.html(`<i class="fa-solid fa-house"></i>`);
+          primeiraCelula.html(`<img src="img/house.svg"></img>`);
         } else if (primeiraCelula.text().replace(/\s+/g, "") == "Auto") {
-          primeiraCelula.html(`<i class="fa-solid fa-car"></i>`);
+          primeiraCelula.html(`<img src="img/car.svg"></img>`);
         } else if (primeiraCelula.text() == "Seguimento") {
           primeiraCelula.html(`<i class="fa-solid fa-gears"></i>`);
         }

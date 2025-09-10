@@ -292,8 +292,15 @@
             width: 100%;
             background: none !important;
             border-radius: 10px;
-            overflow: hidden;
+            overflow: hidden; 
             padding: 20px;
+
+
+            & img {
+                filter: invert(1);
+                width: 50px;
+            }
+
         }
     }
 
