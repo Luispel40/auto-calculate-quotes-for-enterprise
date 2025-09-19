@@ -904,8 +904,8 @@ ${formattedContent}`;
             document.execCommand('copy');
             document.body.removeChild(tempTextarea);
 
-            // var whatsappUrl = 'https://wa.me/?text=' + encodeURIComponent(text);
-            // window.open((whatsappUrl), '_blank');
+            var whatsappUrl = 'https://wa.me/?text=' + encodeURIComponent(text);
+            window.open((whatsappUrl), '_blank');
             console.log(text);
         });
 
