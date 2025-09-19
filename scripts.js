@@ -123,12 +123,15 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     //transforma as entradas em entradas com 1% de aumento
     $("td:nth-child(6)").each(function () {
-      //se for numero...
+      
+
       if (isNaN($(this).text())) {
         return;
       }
+      // pega a celula antes dela como variavel
+      var cell = $(this).prev().text();
       var value = $(this).text() + "0";
-      var newValue = parseFloat(value) * 1.01; // Adiciona 1%
+      var newValue = parseFloat(value) + (cell * 0.01); // Adiciona 1% do valor do crédito ao valor
       $(this).text(newValue.toFixed(3));
       $(this).css("color", "green");
     });
