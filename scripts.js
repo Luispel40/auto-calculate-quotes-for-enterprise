@@ -129,10 +129,11 @@ document.addEventListener("DOMContentLoaded", async function () {
         return;
       }
       // pega a celula antes dela como variavel
-      var cell = $(this).prev().text();
-      var value = $(this).text() + "0";
+      var cell = $(this).prev().text().replace(/,/g, "").replace(/\./g, "");
+      var value = $(this).text().replace(/,/g, "").replace(/\./g, "");
       var newValue = parseFloat(value) + (cell * 0.01); // Adiciona 1% do valor do crédito ao valor
-      $(this).text(newValue.toFixed(3));
+      //garantir que sempre tenha dois digitos depois da virgula
+      $(this).text(parseFloat(newValue.toLocaleString("pt-BR")).toFixed(3));
       $(this).css("color", "green");
     });
 
