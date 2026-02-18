@@ -1,46 +1,45 @@
 // Aguarda o carregamento completo do DOM
 document.addEventListener("DOMContentLoaded", async function () {
-  const introductionAnimation = document.querySelector(
-    ".introduction-animation"
-  );
+  
 
-  setTimeout(function () {
-    introductionAnimation.animate(
-      [{ transform: "translateY(0)" }, { transform: "translateY(-100%)" }],
-      {
-        duration: 1000,
-        fill: "forwards",
-      }
-    );
-  }, 2000);
+  const menuBtn = document.querySelector("#hamburgerBtn");
+  const menuClose = document.querySelector("#closeMenu");
+  const menu = document.getElementById("menuNav");
 
-  setTimeout(function () {
-    introductionAnimation.remove();
-  }, 3000);
+  menuBtn.addEventListener("click", () => {
+    menu.classList.toggle("active");
+  });
 
-  // Função para recarregar o CSS com um parâmetro de "cache busting"
-  function reloadCSS() {
-    const link = document.getElementById("dynamic-css");
-    const baseHref = "style.css";
-    const timestamp = new Date().getTime();
+  menuClose.addEventListener("click", () => {
+    menu.classList.remove("active");
+  });
 
-    link.href = `${baseHref}?v=${timestamp}`;
-  }
-
-  reloadCSS();
   const urlCSV = "https://docs.google.com/spreadsheets/d/1bUFgA8qUTXSAC4gqhsUTU25_dMEaKbM3YgWp4yg8tcU/export?format=csv&gid=0#gid=0";
 
   try {
+    let csvText = sessionStorage.getItem("csvText");
+
+  // Se não existir no cache → faz fetch
+  if (!csvText) {
+    console.log("Buscando CSV da internet...");
+
     const response = await fetch(urlCSV);
-    const csvText = await response.text();
+    csvText = await response.text();
 
-    const linhas = csvText.trim().split("\n");
-    const tabelaDados =
-      linhas.map(
-        line => line.split(",").map(
-          cell => cell.replace(/"/g, "")));
+    // salva no sessionStorage
+    sessionStorage.setItem("csvText", csvText);
+  } else {
+    console.log("CSV carregado do sessionStorage!");
+  }
 
+  console.log(csvText);
 
+  // processamento normal
+  const linhas = csvText.trim().split("\n");
+
+  const tabelaDados = linhas.map((line) =>
+    line.split(",").map((cell) => cell.replace(/"/g, "")),
+  );
     // Criar a div .ritz e tabela .waffle
     const divRitz = document.createElement("div");
     divRitz.classList.add("ritz");
@@ -74,7 +73,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       tr.appendChild(thLinhaVazio);
 
       // Criar as células td para essa linha
-      tabelaDados[i].slice(0, 10).forEach(celula => {
+      tabelaDados[i].slice(0, 11).forEach(celula => {
         const td = document.createElement("td");
         td.textContent = celula;
         tr.appendChild(td);
@@ -373,6 +372,10 @@ document.addEventListener("DOMContentLoaded", async function () {
   const autoFilterButton = document.querySelector(".autoFilterButton");
   const tipeOfProperty = document.querySelector(".tipeOfProperty");
 
+  const introductionAnimation = document.querySelector(
+    ".introduction-animation",
+  );
+
   imoveisFilterButton.addEventListener("click", function () {
     const auto = document.querySelectorAll(".auto");
     auto.forEach((auto) => {
@@ -388,6 +391,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         tipeOfProperty.innerHTML = "Somente imóveis:";
       }
     });
+    introductionAnimation.classList.add("inactive");
   });
 
   autoFilterButton.addEventListener("click", function () {
@@ -405,5 +409,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         tipeOfProperty.innerHTML = "Somente automóveis:";
       }
     });
+    introductionAnimation.classList.add("inactive");
   });
 });
