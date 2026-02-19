@@ -101,6 +101,7 @@ body {
   h3 {
     color: #fff;
     font-size: large;
+    margin-top: 20px;
   }
 
   & img {
@@ -692,6 +693,22 @@ section {
   margin: 0 auto;
 }
 
+.top-table-buttons {
+  display: flex !important;
+  max-width: 400px !important;
+  margin: auto !important;
+  gap: 10px !important;
+
+  & button {
+    width: 100%;
+    height: 60px;
+    border-radius: 10px;
+    border: none;
+    color: #fff;
+    font-size: 1.2rem;
+  }
+}
+
 #botoes_download {
   flex-direction: column;
 }
@@ -700,10 +717,7 @@ section {
   overflow: hidden;
 }
 
-
 #toggleExportButtons {
-  position: relative;
-  top: 40px;
   transition: 0.3s;
 }
 
