@@ -378,6 +378,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   imoveisFilterButton.addEventListener("click", function () {
     const auto = document.querySelectorAll(".auto");
+    const imoveis = document.querySelectorAll(".imovel");
     auto.forEach((auto) => {
       if (auto.classList.contains("disabled")) {
         auto.classList.remove("disabled");
@@ -385,7 +386,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         autoFilterButton.style.pointerEvents = "all";
         tipeOfProperty.innerHTML = "Selecione o tipo:";
       } else {
-        auto.classList.add("disabled");
+        auto.remove();
         autoFilterButton.style.opacity = 0.5;
         autoFilterButton.style.pointerEvents = "none";
         tipeOfProperty.innerHTML = "Somente imóveis:";
@@ -403,7 +404,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         imoveisFilterButton.style.pointerEvents = "all";
         tipeOfProperty.innerHTML = "Selecione o tipo:";
       } else {
-        imovel.classList.add("disabled");
+        imovel.remove();
         imoveisFilterButton.style.opacity = 0.5;
         imoveisFilterButton.style.pointerEvents = "none";
         tipeOfProperty.innerHTML = "Somente automóveis:";
