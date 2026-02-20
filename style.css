@@ -897,6 +897,10 @@ button[disabled] {
   }
 }
 
+.last-added-button {
+  text-transform: uppercase;
+}
+
 .displayFilters {
   position: fixed;
   top: -150px;
