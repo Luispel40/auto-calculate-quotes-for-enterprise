@@ -1,4 +1,3 @@
-// Aguarda o carregamento completo do DOM
 document.addEventListener("DOMContentLoaded", async function () {
   
 
@@ -21,7 +20,6 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   // Se não existir no cache → faz fetch
   if (!csvText) {
-    console.log("Buscando CSV da internet...");
 
     const response = await fetch(urlCSV);
     csvText = await response.text();
@@ -29,10 +27,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     // salva no sessionStorage
     sessionStorage.setItem("csvText", csvText);
   } else {
-    console.log("CSV carregado do sessionStorage!");
   }
 
-  console.log(csvText);
 
   // processamento normal
   const linhas = csvText.trim().split("\n");
@@ -384,12 +380,10 @@ document.addEventListener("DOMContentLoaded", async function () {
         auto.classList.remove("disabled");
         autoFilterButton.style.opacity = 1;
         autoFilterButton.style.pointerEvents = "all";
-        tipeOfProperty.innerHTML = "Selecione o tipo:";
       } else {
         auto.remove();
         autoFilterButton.style.opacity = 0.5;
         autoFilterButton.style.pointerEvents = "none";
-        tipeOfProperty.innerHTML = "Somente imóveis:";
       }
     });
     introductionAnimation.classList.add("inactive");
