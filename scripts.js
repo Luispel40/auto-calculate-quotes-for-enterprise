@@ -333,48 +333,79 @@ document.addEventListener("DOMContentLoaded", async function () {
       celula.appendChild(checkbox);
     }
   });
+disableClick = () => {
+    $("input[type=checkbox]").on("change", function () {
+      var estaLinha = $(this);
 
-  $("input[type=checkbox]").on("change", function () {
-    var estaLinha = $(this);
+      const specialActionButtons = document.querySelector(
+        ".action-special-buttons",
+      );
+      if (this.checked >= 1) {
+        specialActionButtons.style.display = "flex";
+        setTimeout(function () {
+          specialActionButtons.style.bottom = "0px";
+        });
+      }
 
-    const specialActionButtons = document.querySelector(
-      ".action-special-buttons"
-    );
-    if (this.checked >= 1) {
-      specialActionButtons.style.display = "flex";
-      setTimeout(function () {
-        specialActionButtons.style.bottom = "0px";
+      $("tr").each(function () {
+        if ($(this).attr("class") !== estaLinha.closest("tr").attr("class")) {
+          $(this).addClass("disableClick");
+        }
       });
-    }
 
-    // Adicionar classe "disableClick" às linhas que não têm a mesma classe da linha pai
-    $("tr").each(function () {
-      if ($(this).attr("class") !== estaLinha.closest("tr").attr("class")) {
-        $(this).addClass("disableClick");
+      if ($("input[type=checkbox]:checked").length === 0) {
+        $("tr").removeClass("disableClick");
+        specialActionButtons.style.bottom = "-150px";
+        setTimeout(function () {
+          specialActionButtons.style.display = "none";
+        }, 1000);
       }
     });
+  };
 
-    // Remover classe "disableClick" de todas as linhas quando nenhum checkbox estiver marcado
-    if ($("input[type=checkbox]:checked").length === 0) {
-      $("tr").removeClass("disableClick");
-      specialActionButtons.style.bottom = "-150px";
-      setTimeout(function () {
-        specialActionButtons.style.display = "none";
-      }, 1000);
+  disableClick();
+  function saveLocalTable() {
+    const tabela = document.querySelector(".ritz table.waffle");
+    if (!tabela) {
+      console.warn("Tabela não encontrada.");
+      return;
     }
-  });
+
+    const tabelaHTML = tabela.outerHTML;
+
+    // Salva no sessionStorage
+    sessionStorage.setItem("localTableHTML", tabelaHTML);
+
+    console.log("Tabela salva no sessionStorage com sucesso.");
+  }
 
   const imoveisFilterButton = document.querySelector(".imoveisFilterButton");
   const autoFilterButton = document.querySelector(".autoFilterButton");
-  const tipeOfProperty = document.querySelector(".tipeOfProperty");
+  onlyHousesButton = document.querySelector(".only-houses");
+  onlyCarsButton = document.querySelector(".only-cars");
 
   const introductionAnimation = document.querySelector(
     ".introduction-animation",
   );
 
-  imoveisFilterButton.addEventListener("click", function () {
-    const auto = document.querySelectorAll(".auto");
+  filterOnlyHouses = () => {
     const imoveis = document.querySelectorAll(".imovel");
+    imoveis.forEach((imovel) => {
+      if (imovel.classList.contains("disabled")) {
+        imovel.classList.remove("disabled");
+        imoveisFilterButton.style.opacity = 1;
+        imoveisFilterButton.style.pointerEvents = "all";
+      } else {
+        imovel.remove();
+        imoveisFilterButton.style.opacity = 0.5;
+        imoveisFilterButton.style.pointerEvents = "none";
+        onlyCarsButton.style.display = "none";
+      }
+    });
+  };
+
+  filterOnlyCars = () => {
+    const auto = document.querySelectorAll(".auto");
     auto.forEach((auto) => {
       if (auto.classList.contains("disabled")) {
         auto.classList.remove("disabled");
@@ -384,26 +415,49 @@ document.addEventListener("DOMContentLoaded", async function () {
         auto.remove();
         autoFilterButton.style.opacity = 0.5;
         autoFilterButton.style.pointerEvents = "none";
+        onlyHousesButton.style.display = "none";
       }
     });
+  };
+
+  imoveisFilterButton.addEventListener("click", function () {
+    saveLocalTable();
+    filterOnlyCars();
     introductionAnimation.classList.add("inactive");
   });
 
   autoFilterButton.addEventListener("click", function () {
-    const imoveis = document.querySelectorAll(".imovel");
-    imoveis.forEach((imovel) => {
-      if (imovel.classList.contains("disabled")) {
-        imovel.classList.remove("disabled");
-        imoveisFilterButton.style.opacity = 1;
-        imoveisFilterButton.style.pointerEvents = "all";
-        tipeOfProperty.innerHTML = "Selecione o tipo:";
-      } else {
-        imovel.remove();
-        imoveisFilterButton.style.opacity = 0.5;
-        imoveisFilterButton.style.pointerEvents = "none";
-        tipeOfProperty.innerHTML = "Somente automóveis:";
-      }
-    });
+    saveLocalTable();
+    filterOnlyHouses();
+    introductionAnimation.classList.add("inactive");
+  });
+
+  function restoreLocalTable() {
+    const tabelaSalva = sessionStorage.getItem("localTableHTML");
+    if (!tabelaSalva) return;
+
+    const container = document.querySelector(".ritz");
+    if (container) {
+      container.innerHTML = tabelaSalva;
+    }
+  }
+
+  onlyCarsButton.addEventListener("click", function () {
+    onlyCarsButton.style.display = "none";
+    onlyHousesButton.style.display = "block";
+    restoreLocalTable();
+    disableClick();
+    filterOnlyHouses();
+    introductionAnimation.classList.add("inactive");
+  });
+
+  onlyHousesButton.addEventListener("click", function () {
+    onlyHousesButton.style.display = "none";
+    onlyCarsButton.style.display = "block";
+    restoreLocalTable();
+    disableClick();
+    filterOnlyCars();
     introductionAnimation.classList.add("inactive");
   });
 });
+ 

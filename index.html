@@ -38,9 +38,9 @@
             integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
             crossorigin="anonymous" referrerpolicy="no-referrer" />
         <title>estoque contemplados</title>
-        <link rel="stylesheet" href="style.css?v=2.3">
+        <link rel="stylesheet" href="style.css?v=2.4">
 
-        <script src="scripts.js?v=2.3"></script>
+        <script src="scripts.js?v=2.4"></script>
 
         <body>
 
@@ -217,8 +217,17 @@
                             <button id="download-csv"><i class="fa-solid fa-file-csv"></i></button>
                         </div>
                     </div>
-
+                    
                 </section>
+                <div class="houseOrCarTopButtons">
+                        <button class="only-houses">
+                            <i
+                                class="fa-solid fa-house"></i>
+                        </button>
+                        <button class="only-cars">
+                            <i class="fa-solid fa-car"></i>
+                        </button>
+                    </div>
                 </div>
 
                 <script>
@@ -453,23 +462,7 @@
                     </div>
 
                     <button class="btn-close">X</button>
-                    <!-- <div class="commission-box">
-                        <p>valor da comissão:<br><span
-                                id="result">0</span></p><br>
-                        <div class="botoesComissao">
-                            <button class="percentInput" value="0">0%</button>
-                            <button class="percentInput" value="1">1%</button>
-                            <button class="percentInput" value="2">2%</button>
-                            <button class="percentInput" value="3">3%</button>
-                            <button class="percentInput" value="4">4%</button>
-                            <button class="percentInput" value="5">5%</button>
-                            <button class="percentInput" value="6">6%</button>
-                            <button class="percentInput" value="7">7%</button>
-                            <button class="percentInput" value="8">8%</button>
-                            <button class="percentInput" value="9">9%</button>
-                            <button class="percentInput" value="10">10%</button>
-                        </div>
-                    </div> -->
+                    
 
                     <button type="button" class="btn btn-primary"
                         id="copyAndShare">Compartilhar no WhatsApp</button>
@@ -520,39 +513,7 @@
         var parcelasEnd;
         var valorDevedorEnd;
 
-        $(document).ready(function () {
-            var currentRow = $(this);
-            var ADM = currentRow.find("td:eq(2)").html();
-
-            $('input[type=checkbox]').on('change', function () {
-                var checks = $("input[type=checkbox]:checked");
-                var estaLinha = $(this);
-
-                var desSelecionarTodos = document.getElementById("deselectAll")
-
-                if ($("input[type=checkbox]:checked").length >= 1) {
-
-                    desSelecionarTodos.style.display = 'block'
-
-                }
-
-                // Adicionar classe "disableClick" às linhas que não têm a mesma classe da linha pai
-                $("tr").each(function () {
-                    if ($(this).attr("class") !== estaLinha.closest("tr").attr("class")) {
-                        $(this).addClass("disableClick");
-
-                    }
-                });
-
-                if ($("input[type=checkbox]:checked").length === 0) {
-                    $("tr").removeClass("disableClick");
-                    desSelecionarTodos.style.display = 'none'
-                }
-            });
-
-
-
-        })
+       
 
 
         $("#searchInput").on("keyup", function () {
