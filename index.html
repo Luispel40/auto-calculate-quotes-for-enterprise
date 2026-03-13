@@ -49,26 +49,26 @@
                 <h1>Estoque</h1> <br>
                 <h2>Contemplados</h2>
                 <div class="container">
-                                    <p>O que você precisa?</p>
-                                    <div class="selects">
-                                        <h3 class="tipeOfProperty">Selecione o
-                                            tipo:</h3>
-                                        <div class="houseOrCar">
-                                            <button class="imoveisFilterButton">
-                                                <i
-                                                    class="fa-solid fa-house"></i>
-                                            </button>
-                                            <button class="autoFilterButton">
-                                                <i class="fa-solid fa-car"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <button class="last-added-button"
-                                    onclick="document.querySelector(
+                    <p>O que você precisa?</p>
+                    <div class="selects">
+                        <h3 class="tipeOfProperty">Selecione o
+                            tipo:</h3>
+                        <div class="houseOrCar">
+                            <button class="imoveisFilterButton">
+                                <i
+                                    class="fa-solid fa-house"></i>
+                            </button>
+                            <button class="autoFilterButton">
+                                <i class="fa-solid fa-car"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <button class="last-added-button"
+                        onclick="document.querySelector(
     '.introduction-animation',
-  ).classList.add('inactive')">últimas adicionadas</button> 
+  ).classList.add('inactive')">últimas adicionadas</button>
 
-                                </div>
+                </div>
             </div>
             <div class="isLoading">
                 <p>Aplicando filtros</p>
@@ -95,7 +95,8 @@
                     <div class="menu-items">
                         <a onclick="location.reload()"><i
                                 class="fa-solid fa-arrow-rotate-right"></i></a>
-                        <a class="last-added-button" id="lastAddedButton">últimas adicionadas</a>
+                        <a class="last-added-button"
+                            id="lastAddedButton">últimas adicionadas</a>
                         <a href="#" id="hideMenuButton">Ocultar <i
                                 class="fa-solid fa-chevron-right"></i></a>
                     </div>
@@ -104,7 +105,7 @@
                 <section class="controles">
                     <div class="container apresent">
                         <p>ESTOQUE CONSÓRCIOS CONTEMPLADOS CONTEMPLABENS</p>
-                        
+
                         <div class="cont" id="controles">
 
                             <div class="caixa-toggle" id="filter-credit">
@@ -203,23 +204,27 @@
                 </div>
 
                 <div class="top-table-buttons">
-                    <button class="last-added-button">últimas adicionadas</button>
+                    <button class="last-added-button">últimas
+                        adicionadas</button>
                     <section id="botoes_download">
 
-                    <button id="toggleExportButtons">Baixar tabela
-                        completa.</button>
+                        <button id="toggleExportButtons">Baixar tabela
+                            completa.</button>
 
-                    <div id="exportButtonsFora">
-                        <div id="exportButtons">
-                            <button
-                                onclick="exportTableToPDF('tabela_contemplabens.pdf')"><i class="fa-solid fa-file-pdf"></i></button>
-                            <button id="exportButton"><i class="fa-solid fa-file-excel"></i></button>
-                            <button id="download-csv"><i class="fa-solid fa-file-csv"></i></button>
+                        <div id="exportButtonsFora">
+                            <div id="exportButtons">
+                                <button
+                                    onclick="exportTableToPDF('tabela_contemplabens.pdf')"><i
+                                        class="fa-solid fa-file-pdf"></i></button>
+                                <button id="exportButton"><i
+                                        class="fa-solid fa-file-excel"></i></button>
+                                <button id="download-csv"><i
+                                        class="fa-solid fa-file-csv"></i></button>
+                            </div>
                         </div>
-                    </div>
-                    
-                </section>
-                <div class="houseOrCarTopButtons">
+
+                    </section>
+                    <div class="houseOrCarTopButtons">
                         <button class="only-houses">
                             <i
                                 class="fa-solid fa-house"></i>
@@ -308,7 +313,7 @@
         }
 
 
-        // Exportar para PDF
+           // Exportar para PDF
         function exportTableToPDF(filename) {
             const rows = fetchHTMLTableData();
 
@@ -317,12 +322,15 @@
             doc.autoTable({
                 head: [rows[0]],
                 body: rows.slice(1),
-                styles: { halign: 'center', valign: 'middle' }
+                styles: {
+        halign: 'center',
+        valign: 'middle',
+        fontSize: 6
+    }
             });
 
             doc.save(filename);
         }
-
 
         //exclusivo para o csv
         function copiarETrocarValoresNaTabela() {
@@ -462,7 +470,6 @@
                     </div>
 
                     <button class="btn-close">X</button>
-                    
 
                     <button type="button" class="btn btn-primary"
                         id="copyAndShare">Compartilhar no WhatsApp</button>
